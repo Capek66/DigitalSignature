@@ -70,6 +70,7 @@
             this.StSim.Name = "StSim";
             this.StSim.Size = new System.Drawing.Size(144, 22);
             this.StSim.Text = "Stvaranje ključa sim. kript.";
+            this.StSim.Click += new System.EventHandler(this.StSim_Click);
             // 
             // toolStripSeparator1
             // 
@@ -83,6 +84,7 @@
             this.StAsim.Name = "StAsim";
             this.StAsim.Size = new System.Drawing.Size(162, 22);
             this.StAsim.Text = "Stvaranje ključeva asim. kript.";
+            this.StAsim.Click += new System.EventHandler(this.StAsim_Click);
             // 
             // toolStripSeparator2
             // 
@@ -125,7 +127,7 @@
             // toolStripLabel6
             // 
             this.toolStripLabel6.Name = "toolStripLabel6";
-            this.toolStripLabel6.Size = new System.Drawing.Size(122, 15);
+            this.toolStripLabel6.Size = new System.Drawing.Size(122, 22);
             this.toolStripLabel6.Text = "Digitalno potpisivanje";
             // 
             // panel

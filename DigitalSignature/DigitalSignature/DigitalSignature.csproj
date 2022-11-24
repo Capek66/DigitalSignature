@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateAsymKey.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CreateAsymKey.Designer.cs">
+      <DependentUpon>CreateAsymKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateSymKey.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CreateSymKey.Designer.cs">
+      <DependentUpon>CreateSymKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="DSMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +66,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CreateAsymKey.resx">
+      <DependentUpon>CreateAsymKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateSymKey.resx">
+      <DependentUpon>CreateSymKey.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DSMain.resx">
       <DependentUpon>DSMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -78,6 +96,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Keys\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

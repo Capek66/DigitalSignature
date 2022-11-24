@@ -16,5 +16,19 @@ namespace DigitalSignature
         {
             InitializeComponent();
         }
+
+        private void StSim_Click(object sender, EventArgs e)
+        {
+            CreateSymKey createSymKey = new CreateSymKey();
+            panel.Controls.Clear();
+            panel.Controls.Add(createSymKey);
+        }
+
+        private void StAsim_Click(object sender, EventArgs e)
+        {
+            CreateAsymKey createAsymKey = new CreateAsymKey();
+            panel.Controls.Clear();
+            panel.Controls.Add(createAsymKey);
+        }
     }
 }
