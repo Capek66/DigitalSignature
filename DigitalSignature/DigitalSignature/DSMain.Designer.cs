@@ -96,6 +96,7 @@
             this.KDSim.Name = "KDSim";
             this.KDSim.Size = new System.Drawing.Size(179, 22);
             this.KDSim.Text = "Kriptiranje/dekriptiranje sim. alg.";
+            this.KDSim.Click += new System.EventHandler(this.KDSim_Click);
             // 
             // toolStripSeparator3
             // 

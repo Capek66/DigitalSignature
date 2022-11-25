@@ -6,9 +6,11 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace DigitalSignature
 {
@@ -17,35 +19,32 @@ namespace DigitalSignature
         public CreateAsymKey()
         {
             InitializeComponent();
-            error.Visible = false;
             succes.Visible = false;
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if (tbName.Text != "" && tbSurname.Text != "")
-            {
-                error.Visible = false;
-                succes.Visible = true;
+            succes.Visible = true;
 
-                var rsa = new RSACryptoServiceProvider(2048);
-                
-                
-               
+            var rsa = new RSACryptoServiceProvider(2048);
+            RSAParameters privateKey = rsa.ExportParameters(true);
+            RSAParameters publicKey = rsa.ExportParameters(false);
+            SaveKey(privateKey, "privatni_kljuc");
+            SaveKey(publicKey, "javni_kljuc");
+        }
 
-                string fileName = @"..\..\Keys\tajni_kljuc.txt";
-                FileStream fs = File.Create(fileName);
-                fs.Close();
-                StreamWriter sw = new StreamWriter(fileName);
-                sw.WriteLine(Convert.ToBase64String(aes.Key));
-                sw.WriteLine(Convert.ToBase64String(aes.IV));
-                sw.Close();
-            }
-            else
-            {
-                error.Visible = true;
-                succes.Visible = false;
-            }
+        private void SaveKey(RSAParameters key, string fName)
+        {
+            StringWriter stringWriter = new StringWriter();
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(RSAParameters));
+            xmlSerializer.Serialize(stringWriter, key);
+
+            string fileName = @"..\..\Keys\" + fName + ".txt";
+            FileStream fs = File.Create(fileName);
+            fs.Close();
+            StreamWriter sw = new StreamWriter(fileName);
+            sw.WriteLine(stringWriter.ToString());
+            sw.Close();
         }
     }
 }
