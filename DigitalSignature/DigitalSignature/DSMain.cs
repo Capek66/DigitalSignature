@@ -45,5 +45,26 @@ namespace DigitalSignature
             panel.Controls.Clear();
             panel.Controls.Add(encDecAsym);
         }
+
+        private void IzrSaz_Click(object sender, EventArgs e)
+        {
+            HashCalc hashCalc = new HashCalc();
+            panel.Controls.Clear();
+            panel.Controls.Add(hashCalc);
+        }
+
+        private void digitalnoPotpisivanjeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DigSign digSign = new DigSign();
+            panel.Controls.Clear();
+            panel.Controls.Add(digSign);
+        }
+
+        private void provjeraDigitalnogPotpisaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheckDigSign checkDigSign = new CheckDigSign();
+            panel.Controls.Clear();
+            panel.Controls.Add(checkDigSign);
+        }
     }
 }

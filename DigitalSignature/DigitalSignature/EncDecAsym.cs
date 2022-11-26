@@ -28,18 +28,32 @@ namespace DigitalSignature
 
         private void btnChooseKey_Click(object sender, EventArgs e)
         {
-            OpenFileDialog chooseKey = new OpenFileDialog();
-            chooseKey.ShowDialog();
-            keyFilePath = Path.GetFullPath(chooseKey.FileName);
-            tbKey.Text = Path.GetFileName(chooseKey.FileName);
+            try 
+            {
+                OpenFileDialog chooseKey = new OpenFileDialog();
+                chooseKey.ShowDialog();
+                keyFilePath = Path.GetFullPath(chooseKey.FileName);
+                tbKey.Text = Path.GetFileName(chooseKey.FileName);
+            }
+            catch
+            {
+                
+            }
         }
 
         private void btnChooseFile_Click(object sender, EventArgs e)
         {
-            OpenFileDialog chooseFile = new OpenFileDialog();
-            chooseFile.ShowDialog();
-            dataFilePath = Path.GetFullPath(chooseFile.FileName);
-            tbFile.Text = Path.GetFileName(chooseFile.FileName);
+            try
+            {
+                OpenFileDialog chooseFile = new OpenFileDialog();
+                chooseFile.ShowDialog();
+                dataFilePath = Path.GetFullPath(chooseFile.FileName);
+                tbFile.Text = Path.GetFileName(chooseFile.FileName);
+            }
+            catch
+            {
+                
+            }
         }
 
         private void btnEncrypt_Click(object sender, EventArgs e)

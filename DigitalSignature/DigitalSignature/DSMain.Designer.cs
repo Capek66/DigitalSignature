@@ -40,8 +40,10 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.IzrSaz = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.panel = new System.Windows.Forms.Panel();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.digitalnoPotpisivanjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.provjeraDigitalnogPotpisaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,10 +60,10 @@
             this.toolStripSeparator4,
             this.IzrSaz,
             this.toolStripSeparator5,
-            this.toolStripLabel6});
+            this.toolStripDropDownButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(971, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1047, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -120,31 +122,53 @@
             this.IzrSaz.Name = "IzrSaz";
             this.IzrSaz.Size = new System.Drawing.Size(120, 22);
             this.IzrSaz.Text = "Izračunavanje sažetka";
+            this.IzrSaz.Click += new System.EventHandler(this.IzrSaz_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripLabel6
-            // 
-            this.toolStripLabel6.Name = "toolStripLabel6";
-            this.toolStripLabel6.Size = new System.Drawing.Size(122, 22);
-            this.toolStripLabel6.Text = "Digitalno potpisivanje";
-            // 
             // panel
             // 
             this.panel.Location = new System.Drawing.Point(0, 28);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(971, 528);
+            this.panel.Size = new System.Drawing.Size(1047, 528);
             this.panel.TabIndex = 1;
+            // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.digitalnoPotpisivanjeToolStripMenuItem,
+            this.provjeraDigitalnogPotpisaToolStripMenuItem});
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(135, 22);
+            this.toolStripDropDownButton1.Text = "Digitalno potpisivanje";
+            this.toolStripDropDownButton1.ToolTipText = "Digitalno potpisivanje";
+            // 
+            // digitalnoPotpisivanjeToolStripMenuItem
+            // 
+            this.digitalnoPotpisivanjeToolStripMenuItem.Name = "digitalnoPotpisivanjeToolStripMenuItem";
+            this.digitalnoPotpisivanjeToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.digitalnoPotpisivanjeToolStripMenuItem.Text = "Digitalno potpisivanje poruke";
+            this.digitalnoPotpisivanjeToolStripMenuItem.Click += new System.EventHandler(this.digitalnoPotpisivanjeToolStripMenuItem_Click);
+            // 
+            // provjeraDigitalnogPotpisaToolStripMenuItem
+            // 
+            this.provjeraDigitalnogPotpisaToolStripMenuItem.Name = "provjeraDigitalnogPotpisaToolStripMenuItem";
+            this.provjeraDigitalnogPotpisaToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.provjeraDigitalnogPotpisaToolStripMenuItem.Text = "Provjera digitalnog potpisa";
+            this.provjeraDigitalnogPotpisaToolStripMenuItem.Click += new System.EventHandler(this.provjeraDigitalnogPotpisaToolStripMenuItem_Click);
             // 
             // DSMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(971, 558);
+            this.ClientSize = new System.Drawing.Size(1047, 558);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -170,8 +194,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripLabel IzrSaz;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel6;
         private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripMenuItem digitalnoPotpisivanjeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem provjeraDigitalnogPotpisaToolStripMenuItem;
     }
 }
 

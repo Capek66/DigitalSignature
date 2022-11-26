@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckDigSign.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckDigSign.Designer.cs">
+      <DependentUpon>CheckDigSign.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateAsymKey.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -57,6 +63,12 @@
     </Compile>
     <Compile Include="CreateSymKey.Designer.cs">
       <DependentUpon>CreateSymKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DigSign.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DigSign.Designer.cs">
+      <DependentUpon>DigSign.cs</DependentUpon>
     </Compile>
     <Compile Include="DSMain.cs">
       <SubType>Form</SubType>
@@ -76,13 +88,25 @@
     <Compile Include="EncDecSym.Designer.cs">
       <DependentUpon>EncDecSym.cs</DependentUpon>
     </Compile>
+    <Compile Include="HashCalc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HashCalc.Designer.cs">
+      <DependentUpon>HashCalc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CheckDigSign.resx">
+      <DependentUpon>CheckDigSign.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateAsymKey.resx">
       <DependentUpon>CreateAsymKey.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateSymKey.resx">
       <DependentUpon>CreateSymKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DigSign.resx">
+      <DependentUpon>DigSign.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DSMain.resx">
       <DependentUpon>DSMain.cs</DependentUpon>
@@ -92,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EncDecSym.resx">
       <DependentUpon>EncDecSym.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HashCalc.resx">
+      <DependentUpon>HashCalc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
