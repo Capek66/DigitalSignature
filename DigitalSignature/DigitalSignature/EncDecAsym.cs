@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Text;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,14 +12,13 @@ using System.Windows.Forms;
 
 namespace DigitalSignature
 {
-    public partial class EncDecSym : UserControl
+    public partial class EncDecAsym : UserControl
     {
         private string keyFilePath = "";
         private string dataFilePath = "";
-        private byte[] secretKey;
-        private byte[] IV;
+        private string asymKey;
         private string data;
-        public EncDecSym()
+        public EncDecAsym()
         {
             InitializeComponent();
             succesEnc.Visible = false;
@@ -47,7 +44,7 @@ namespace DigitalSignature
 
         private void btnEncrypt_Click(object sender, EventArgs e)
         {
-            if((keyFilePath != "") && (dataFilePath != ""))
+            if ((keyFilePath != "") && (dataFilePath != ""))
             {
                 error.Visible = false;
                 succesEnc.Visible = true;
@@ -66,23 +63,14 @@ namespace DigitalSignature
 
         private void EncryptData()
         {
-            Aes aes = Aes.Create();
-            aes.KeySize = 256;
-            ICryptoTransform encr = aes.CreateEncryptor(secretKey, IV);
-            byte[] encrypted;
+            byte[] encData;
+            UnicodeEncoding byteConverter = new UnicodeEncoding();
+            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(2048);
 
-            using (MemoryStream msEncrypt = new MemoryStream())
-            {
-                using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encr, CryptoStreamMode.Write))
-                {
-                    using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
-                    {
-                        swEncrypt.Write(data);
-                    }
-                    encrypted = msEncrypt.ToArray();
-                }
-            }
-            SaveData(Convert.ToBase64String(encrypted), 'E');
+            rsa.FromXmlString(asymKey);
+            encData = rsa.Encrypt(Encoding.Unicode.GetBytes(data), false);
+
+            SaveData(Convert.ToBase64String(encData), 'E');
         }
 
         private void btnDecrypt_Click(object sender, EventArgs e)
@@ -106,33 +94,23 @@ namespace DigitalSignature
 
         private void DecryptData()
         {
-            Aes aes = Aes.Create();
-            aes.KeySize = 256;
-            ICryptoTransform decrypter = aes.CreateDecryptor(secretKey, IV);
+            byte[] decData;
+            UnicodeEncoding byteConverter = new UnicodeEncoding();
+            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(2048);
+            
+            rsa.FromXmlString(asymKey);
+            RSAParameters privateKey = rsa.ExportParameters(true);
 
-            using (MemoryStream msDecrypt = new MemoryStream(Convert.FromBase64String(data)))
-            {
-                using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decrypter, CryptoStreamMode.Read))
-                {
-                    using (StreamReader srDecrypt = new StreamReader(csDecrypt))
-                    {
-                        SaveData(srDecrypt.ReadToEnd(), 'D');
-                    }
-                }
-            }
+            decData = rsa.Decrypt(Convert.FromBase64String(data), false);
+            
+            SaveData(Encoding.Unicode.GetString(decData), 'D');
         }
 
         private void GetKeyAndData()
         {
-            string key;
-            string initVec;
-
             StreamReader srKey = new StreamReader(keyFilePath);
-            key = srKey.ReadLine();
-            initVec = srKey.ReadLine();
+            asymKey = srKey.ReadToEnd();
             srKey.Close();
-            secretKey = Convert.FromBase64String(key);
-            IV = Convert.FromBase64String(initVec);
 
             StreamReader srData = new StreamReader(dataFilePath);
             data = srData.ReadToEnd();

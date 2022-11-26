@@ -108,6 +108,7 @@
             this.KDAsim.Name = "KDAsim";
             this.KDAsim.Size = new System.Drawing.Size(185, 22);
             this.KDAsim.Text = "Kriptiranje/dekriptiranje asim. alg.";
+            this.KDAsim.Click += new System.EventHandler(this.KDAsim_Click);
             // 
             // toolStripSeparator4
             // 

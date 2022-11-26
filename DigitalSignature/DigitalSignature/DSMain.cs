@@ -37,5 +37,13 @@ namespace DigitalSignature
             panel.Controls.Clear();
             panel.Controls.Add(encDecSym);
         }
+
+        private void KDAsim_Click(object sender, EventArgs e)
+        {
+
+            EncDecAsym encDecAsym = new EncDecAsym();
+            panel.Controls.Clear();
+            panel.Controls.Add(encDecAsym);
+        }
     }
 }

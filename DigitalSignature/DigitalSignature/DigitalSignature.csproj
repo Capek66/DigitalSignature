@@ -64,6 +64,12 @@
     <Compile Include="DSMain.Designer.cs">
       <DependentUpon>DSMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="EncDecAsym.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EncDecAsym.Designer.cs">
+      <DependentUpon>EncDecAsym.cs</DependentUpon>
+    </Compile>
     <Compile Include="EncDecSym.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DSMain.resx">
       <DependentUpon>DSMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EncDecAsym.resx">
+      <DependentUpon>EncDecAsym.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EncDecSym.resx">
       <DependentUpon>EncDecSym.cs</DependentUpon>
